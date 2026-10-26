@@ -7,5 +7,15 @@ directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "single-page-application"
 
+# ...
 [vars]
+APP_ENV = "production"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltaGJ0Z3NlZGduaWl6bHptb2dqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDk3NzIsImV4cCI6MjEwODMyNTc3Mn0.kCxntRT_GAb6vk_cXcJlwlUskIZsfh8QpJuufeCgBps"
+SUPABASE_SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltaGJ0Z3NlZGduaWl6bHptb2dqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5Mjc0OTc3MiwiZXhwIjoyMTA4MzI1NzcyfQ.ugyRjLkuuSsMG0iNlInKRYYrZcaru_55TY80seV9eus"
+SUPABASE_URL = "https://imhbtgsedgniizlzmogj.supabase.co"
+VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltaGJ0Z3NlZGduaWl6bHptb2dqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDk3NzIsImV4cCI6MjEwODMyNTc3Mn0.kCxntRT_GAb6vk_cXcJlwlUskIZsfh8QpJuufeCgBps"
+VITE_SUPABASE_SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltaGJ0Z3NlZGduaWl6bHptb2dqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5Mjc0OTc3MiwiZXhwIjoyMTA4MzI1NzcyfQ.ugyRjLkuuSsMG0iNlInKRYYrZcaru_55TY80seV9eus"
+VITE_SUPABASE_URL = "https://imhbtgsedgniizlzmogj.supabase.co"
 SUPABASE_TABLE = "requests"
+
+# ...
