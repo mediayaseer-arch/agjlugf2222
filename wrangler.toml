@@ -9,7 +9,6 @@ not_found_handling = "single-page-application"
 
 # ...
 [vars]
-SUPABASE_TABLE = "requests"
 ADMIN_EMAIL = "herlsjb59@gmail.com"
 ADMIN_PASSWORD = "herlsjb59@gmail.com"
 SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9pZmp3YWJoemtxcXpqeWZtcnJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI1ODE5NjEsImV4cCI6MjEwODE1Nzk2MX0.SZoCrYUQD7EjlcCK3gq-boIfAuYDyVX3JHqV0ZzXPT0"
