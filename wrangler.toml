@@ -1,0 +1,11 @@
+name = "msuct-app"
+main = "worker.ts"
+compatibility_date = "2025-02-01"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[vars]
+SUPABASE_TABLE = "requests"

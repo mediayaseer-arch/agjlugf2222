@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Remix Bank Muscat Masqat Pay2",
+  "description": "Promotion page for Bank Muscat Masqat Pay wearable payment device.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
